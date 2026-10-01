@@ -31,5 +31,12 @@ namespace Advanced02G03
                 Console.WriteLine($"Id: {product.Id}, Name: {product.Name}, Category: {product.Category}, Price: {product.Price}, Stock: {product.Stock}");
             }
         }
+        public static void PrintProducts(List<Product> products, Action<Product> action)
+        {
+            foreach (var product in products)
+            {
+                action(product);
+            }
+        }
     }
 }

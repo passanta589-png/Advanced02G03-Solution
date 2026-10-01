@@ -30,6 +30,11 @@ namespace Advanced02G03
             Product.PrintProducts(clothingProducts);
             #endregion
 
+            #region 02
+           Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Price: {p.Price}"));
+           Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Category: {p.Category},Price:${p.Price}, Stock: {p.Stock}"));
+            #endregion
+
         }
     }
 }
