@@ -47,6 +47,18 @@ namespace Advanced02G03
             }
             return result;
         }
-             
+        public static List<Product> FilterProducts(List<Product> products, Func<Product, bool> filter)
+        {
+            List<Product> result = new List<Product>();
+            foreach (var product in products)
+            {
+                if (filter(product))
+                {
+                    result.Add(product);
+                }
+            }
+            return result;
+        }
+
     }
 }

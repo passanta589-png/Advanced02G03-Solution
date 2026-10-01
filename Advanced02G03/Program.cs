@@ -34,6 +34,7 @@ namespace Advanced02G03
            Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Price: {p.Price}"));
            Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Category: {p.Category},Price:${p.Price}, Stock: {p.Stock}"));
             #endregion
+
             #region 03
             var summary = Product.TransformProducts(catalog, p => new { p.Name, p.Price });
             foreach (var item in summary)
@@ -44,6 +45,14 @@ namespace Advanced02G03
             foreach (var label in pricelabel)
             {
                 Console.WriteLine(label);
+            }
+            #endregion
+
+            #region 04
+            List<Product> StockProducts = Product.FilterProducts(catalog, p => p.Stock < 20);
+            foreach (var product in StockProducts)
+            {
+                Console.WriteLine($"[LOW STOCK] {product.Name}: only {product.Stock} left!");
             }
             #endregion
 
