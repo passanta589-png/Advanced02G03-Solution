@@ -38,5 +38,15 @@ namespace Advanced02G03
                 action(product);
             }
         }
+        public static List<TResult> TransformProducts<TResult>(List<Product> products, Func<Product, TResult> transformer)
+        {
+            List<TResult> result = new List<TResult>();
+            foreach (var product in products)
+            {
+                result.Add(transformer(product));
+            }
+            return result;
+        }
+             
     }
 }

@@ -34,6 +34,18 @@ namespace Advanced02G03
            Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Price: {p.Price}"));
            Product.PrintProducts(catalog, p => Console.WriteLine($"Product: {p.Name}, Category: {p.Category},Price:${p.Price}, Stock: {p.Stock}"));
             #endregion
+            #region 03
+            var summary = Product.TransformProducts(catalog, p => new { p.Name, p.Price });
+            foreach (var item in summary)
+            {
+                Console.WriteLine(item);
+            }
+            var pricelabel = Product.TransformProducts(catalog, p => $"Product: {p.Name}, Price: ${(p.Price>100 ? "Expensive" : "Affordable")}");
+            foreach (var label in pricelabel)
+            {
+                Console.WriteLine(label);
+            }
+            #endregion
 
         }
     }
