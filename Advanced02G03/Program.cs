@@ -1,4 +1,6 @@
-﻿namespace Advanced02G03
+﻿using System.Runtime.InteropServices.Marshalling;
+
+namespace Advanced02G03
 {
     internal class Program
     {
@@ -17,6 +19,17 @@
                 new Product { Id = 9, Name = "Headphones", Category = "Electronics", Price = 150, Stock = 40 },
                 new Product { Id = 10, Name = "Jacket", Category = "Clothing", Price = 120, Stock = 15 }
             };
+            #region 01
+            var electronics = Product.SearchProducts(catalog, p => p.Category == "Electronics");
+            Product.PrintProducts(electronics);
+            var  under50 = Product.SearchProducts(catalog, p => p.Price <50);
+            Product.PrintProducts(under50);
+            var instock = Product.SearchProducts(catalog, p => p.Stock >0);
+            Product.PrintProducts(instock);
+            var clothingProducts = Product.SearchProducts(catalog, p => p.Category == "Clothing"&& p.Price<100);
+            Product.PrintProducts(clothingProducts);
+            #endregion
+
         }
     }
 }
